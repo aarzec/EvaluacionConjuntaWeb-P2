@@ -131,6 +131,68 @@
             </ul>
         </section>
     </main>
-    <script></script>
+    <script>
+        // Base de datos de libros
+        const libros = [
+            { id: 1, titulo: "El Principito", autor: "Antoine de Saint-Exupéry", disponible: true, img: "img/1.jpg" },
+            { id: 2, titulo: "Cien Años de Soledad", autor: "Gabriel García Márquez", disponible: true, img: "img/2.jpg" },
+            { id: 3, titulo: "1984", autor: "George Orwell", disponible: true, img: "img/3.jpg" },
+        ];
+    
+        // Renderiza los libros disponibles
+        function renderizarLibros() {
+            const listaDisponibles = document.querySelector(".disponibles ul");
+            const listaPrestados = document.querySelector(".prestados ul");
+    
+            listaDisponibles.innerHTML = "";
+            listaPrestados.innerHTML = "";
+    
+            libros.forEach((libro) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <h3>${libro.titulo}</h3>
+                    <p>${libro.autor}</p>
+                    <img src="${libro.img}" alt="${libro.titulo}" width="150">
+                    ${libro.disponible ? '<button class="reservar">Reservar</button>' : '<button class="devolver">Devolver</button>'}
+                `;
+    
+                if (libro.disponible) {
+                    li.querySelector(".reservar").onclick = () => reservarLibro(libro.id);
+                    listaDisponibles.appendChild(li);
+                } else {
+                    li.querySelector(".devolver").onclick = () => devolverLibro(libro.id);
+                    listaPrestados.appendChild(li);
+                }
+            });
+        }
+    
+        // Simula la reserva de un libro
+        async function reservarLibro(id) {
+            console.log("Reservando libro...");
+            await new Promise((resolve) => setTimeout(resolve, 2000)); // Simula un retraso de 2 segundos
+            const libro = libros.find((l) => l.id === id);
+            if (libro) {
+                libro.disponible = false;
+                alert(`Has reservado "${libro.titulo}".`);
+                renderizarLibros();
+            }
+        }
+        //Devolucion 
+        async function devolverLibro(id) {
+            console.log("Devolviendo libro...");
+            await new Promise((resolve) => setTimeout(resolve, 2000)); // Simula un retraso de 2 segundos
+            const libro = libros.find((l) => l.id === id);
+            if (libro) {
+                libro.disponible = true;
+                alert(`Has devuelto "${libro.titulo}".`);
+                renderizarLibros();
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            renderizarLibros();
+        });
+    </script>
+    
 </body>
 </html>
