@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Librería Digital</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+        }
+        body {
+            text-align: center;
+        }
+        ul {
+            text-align: left;
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        section {
+            width: calc(50vw - 30px);
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        section.disponibles {
+            background-color: rgb(160, 255, 160);
+        }
+
+        section.prestados {
+            background-color: rgb(255, 160, 160);
+        }
+
+        section ul li {
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 175px;
+            text-align: center;
+        }
+
+        section ul li img {
+            margin: 10px 0;
+        }
+
+        section li button {
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.reservar {
+            background-color: #000;
+            color: #fff;
+        }
+
+        button.reservar:hover {
+            background-color: #333;
+        }
+
+        button.devolver {
+            background-color: #f00;
+            color: #fff;
+        }
+
+        button.devolver:hover {
+            background-color: #f33;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Librería Digital</h1>
+        <p><b>Integrantes:</b></p>
+        <ul>
+            <li>Bryan Jumbo</li>
+            <li>Andrés Romero</li>
+        </ul>
+    </header>
+
+    <main>
+        <section class="disponibles">
+            <h2>Libros Disponibles</h2>
+            <ul>
+                <li>
+                    <h3>Titulo</h3>
+                    <p>Autor</p>
+                    <img src="img/1.jpg" alt="" width="150">
+                    <button class="reservar">Reservar</button>
+                </li>
+            </ul>
+        </section>
+        <section class="prestados">
+            <h2>Libros Prestados</h2>
+            <ul>
+            </ul>
+        </section>
+    </main>
+    <script></script>
+</body>
+</html>
