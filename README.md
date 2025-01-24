@@ -100,3 +100,60 @@ setTimeout(() => {
 
 En pocas palabras, aquí establecemos un temporizador que se ejecutará en la fecha y hora especificadas.
 
+##Eventos y Usabilidad 
+
+**¿Cómo mejorar la experiencia del usuario con eventos (onclick, onchange, onmouseover, onmouseout, onfocus, onblur)?**
+Lo que podemos hacer es asignar acciones en botones utilizando el onclick, añadir efectos visuales con el onmouseover, monitorear los cambios en campos de entrada con el onchange y mejorar la accesibilidad al resaltar elementos con el onfocus 
+
+• onclick: Asignar acciones a botones, como reservar o devolver libros. Por ejemplo, al hacer clic en "Reservar", el estado del libro cambia y se actualiza la lista visual.
+•  onmouseover y onmouseout: Añadir efectos visuales al pasar el ratón sobre elementos interactivos, como botones que cambian de color o muestran información adicional.
+•  onchange: Monitorear cambios en campos de entrada (como filtros de búsqueda) para actualizar dinámicamente la lista de libros.
+•  onfocus y onblur: Mejorar la accesibilidad al resaltar elementos seleccionados o validar datos en tiempo real.
+
+```js
+      item.onmouseover = () => (item.style.backgroundColor = "lightblue");
+      item.onmouseout = () => (item.style.backgroundColor = "");
+      item.onclick = () => alert(`Reservaste el libro: "${libro.titulo}"`);
+      contenedor.appendChild(item);
+      function resaltar(elemento) {
+          elemento.style.border = "2px solid blue";
+        }
+      
+        function quitarResaltado(elemento) {
+          elemento.style.border = "";
+        }
+```
+##Funciones Avanzadas 
+**¿Cómo usar funciones autoejecutables, anónimas, y async/await para manejar procesos asíncronos?
+
+Uso de async/await, funciones anónimas y autoejecutables para modularidad y manejo eficaz de asincronía
+•  Se agregó una función autoejecutada para inicializar el sistema automáticamente al cargar.
+•  Se implementaron funciones async/await para manejar retrasos simulados al procesar reservas, mejorando la experiencia del usuario.
+
+```js
+ 
+    (function () {
+      console.log("Sistema de biblioteca inicializado automáticamente.");
+    })();
+   
+    async function procesarReserva(idLibro) {
+      console.log("Procesando reserva...");
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simula 2 segundos de espera
+      console.log(`Reserva confirmada para el libro con ID: ${idLibro}`);
+    }
+    
+    procesarReserva(1);
+
+```
+
+##Simulacion de procesos asincronicos 
+
+**¿Cómo implementar la reserva y devolución de libros usando promesas y setTimeout para simular tiempos de espera?
+
+•	Reservas: Se implementó un retraso de 2 segundos al reservar un libro usando setTimeout dentro de una Promesa.
+•	Devoluciones: Se simuló un tiempo de procesamiento de 3 segundos antes de actualizar el estado del libro como disponible.
+•	Notificaciones: Se usaron Promesas para notificar al usuario cuando un libro reservado vuelva a estar disponible, con un retraso simulado de 5 segundos.
+
+
+
+
